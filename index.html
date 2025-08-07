@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vote for a Name!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+    .poll-container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: inline-block;
+      padding: 24px 48px;
+    }
+    button {
+      margin: 10px;
+      font-size: 1.2em;
+      padding: 10px 30px;
+      border-radius: 6px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #388E3C;
+    }
+    .results {
+      margin-top: 24px;
+      text-align: left;
+      display: inline-block;
+    }
+    .result-row {
+      margin: 6px 0;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="poll-container">
+    <h2>Vote for your favorite name</h2>
+    <button onclick="vote('xxx')">xxx</button>
+    <button onclick="vote('yyy')">yyy</button>
+    <button onclick="vote('zzz')">zzz</button>
+    <div class="results" id="results">
+      <div class="result-row">xxx: <span id="count-xxx">0</span></div>
+      <div class="result-row">yyy: <span id="count-yyy">0</span></div>
+      <div class="result-row">zzz: <span id="count-zzz">0</span></div>
+    </div>
+  </div>
+  <script>
+    const votes = { xxx: 0, yyy: 0, zzz: 0 };
+
+    function vote(name) {
+      votes[name]++;
+      updateResults();
+    }
+
+    function updateResults() {
+      document.getElementById('count-xxx').textContent = votes.xxx;
+      document.getElementById('count-yyy').textContent = votes.yyy;
+      document.getElementById('count-zzz').textContent = votes.zzz;
+    }
+  </script>
+</body>
+</html>
